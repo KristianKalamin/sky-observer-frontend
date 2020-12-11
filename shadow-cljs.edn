@@ -1,0 +1,21 @@
+;; shadow-cljs configuration
+{:source-paths
+ ["src/dev"
+  "src/main"
+  "src/test"]
+
+ :dependencies
+ [[prismatic/dommy "1.1.0"]
+  [cljs-http "0.1.46"]]
+
+ :dev-http {8080 "resources/public"}
+
+ :builds {:app {:target :browser
+                :output-dir "resources/public/js"
+                :modules {:shared {}
+                          :main
+                          {:entries [app]
+                           :depends-on #{:shared}}
+                          :result
+                          {:entries [result]
+                           :depends-on #{:shared}}}}}}

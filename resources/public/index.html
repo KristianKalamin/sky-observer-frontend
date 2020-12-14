@@ -4,6 +4,15 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <!-- Icons font CSS -->
+    <link href="css/vendor/mdi-font/css/material-design-iconic-font.min.css" rel="stylesheet" media="all">
+    <link href="css/vendor/font-awesome-4.7/css/font-awesome.min.css" rel="stylesheet" media="all">
+
+    <!-- Font -->
+    <link href="https://fonts.googleapis.com/css?family=Roboto:100,100i,300,300i,400,400i,500,500i,700,700i,900,900i"
+        rel="stylesheet">
+
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css"
         integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
 
@@ -16,9 +25,40 @@
 </head>
 
 <body>
-    <h1 class="btn-danger" id="hello">Hello</h1>
+    <div class="page-wrapper ">
+        <div class="wrapper wrapper--w1070">
+            <div class="card card-7">
+                <div class="card-body">
+                    <form class="form" method="GET" action="/search-result.html">
+                        <div class="search-location">
+                            <div class="input-group input--large">
+                                <label class="label">Location</label>
+                                <input class="input--style-1" id="location" type="text" placeholder="Belgrade"
+                                    name="location" required>
+                                <input name="lat" id="lat-input" type="text" hidden>
+                                <input name="lon" id="lon-input" type="text" hidden>
+                            </div>
+                            <div id="search-options">
+                                <div id="items"></div>
+                            </div>
+                        </div>
+                        <div class="input-group input--medium">
+                            <label class="label">Date</label>
+                            <input class="input--style-1" type="date" name="date" placeholder="mm/dd/yyyy"
+                                id="input-start" required>
+                        </div>
+                        <div class="input-group input--medium">
+                            <label class="label">Time</label>
+                            <input class="input--style-1" type="time" id="time" name="time" value="22:00" required>
+                        </div>
 
-    <a href="results.html">Results</a>
+                        <button class="btn-submit" type="submit">search</button>
+                    </form>
+                </div>
+            </div>
+        </div>
+        <div id="map"></div>
+    </div>
 
     <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js"
         integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN"
@@ -29,7 +69,6 @@
     <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js"
         integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl"
         crossorigin="anonymous"></script>
-
     <script src="https://unpkg.com/leaflet@1.7.1/dist/leaflet.js"
         integrity="sha512-XQoYMqMTK8LvdxXYG3nZ448hOEQiglfqkJs1NOQV44cWnUrBc8PkAOcXy20w0vlaXaVUearIOBhiXZ5V3ynxwA=="
         crossorigin=""></script>

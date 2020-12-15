@@ -33,8 +33,8 @@
           (.addTo l-map)))))
 
 (defn set-heading [location]
-  (-> (js/jQuery ".heading")
-      (.val (str "All flybys over " location))))
+  (-> (js/jQuery "#heading")
+      (.text (str "All flybys over " location))))
 
 (defn get-time-part [date-time]
   ((str/split date-time "T") 1))
@@ -75,6 +75,7 @@
        time "time"
        location "location"} (:query (url (-> js/window .-location .-href)))]
 
+  (set-heading (str/replace location #"[+]" " "))
   (reset! lat-atom lat)
   (reset! lon-atom lon)
   (get-nearby-historic-searches lat lon)

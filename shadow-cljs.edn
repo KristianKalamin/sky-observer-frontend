@@ -6,7 +6,8 @@
 
  :dependencies
  [[prismatic/dommy "1.1.0"]
-  [cljs-http "0.1.46"]]
+  [cljs-http "0.1.46"]
+  [com.cemerick/url "0.1.1"]]
 
  :dev-http {8080 "resources/public"}
 

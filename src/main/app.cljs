@@ -86,19 +86,19 @@
 
 (defn get-locations [query]
   (go (let [response (<! (http/post "http://localhost:882/locations" {:json-params {:location query}}))
-            clj-response (-> js/JSON
+            js-response (-> js/JSON
                              (.parse (:body response)))]
 
-        (reset! locations (js->clj clj-response :keywordize-keys true)))))
+        (reset! locations (js->clj js-response :keywordize-keys true)))))
 
 
 (defn get-location-from-coordinates [lat lon]
   (go (let [response (<! (http/post "http://localhost:882/location" {:json-params {:lat lat
                                                                                    :lon lon}}))
-            clj-response (-> js/JSON
+            js-response (-> js/JSON
                              (.parse (:body response)))]
 
-        (search-complet (js->clj clj-response :keywordize-keys true)))))
+        (search-complet (js->clj js-response :keywordize-keys true)))))
 
 (defn set-pin-on-click [e]
   (let [{lat :lat

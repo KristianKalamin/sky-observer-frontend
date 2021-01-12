@@ -37,12 +37,14 @@
   (.setView l-map (array lat lng)))
 
 (defn search-complet [result]
+  (if (= (:lat result) nil)
+    (js/alert "Can't get info for given location, plese choose different location")
   (let [{lat :lat
          lon :lon
          place :place} result]
 
     (set-pin lat lon)
-    (.val (js/jQuery "#location") place)))
+    (.val (js/jQuery "#location") place))))
 
 (defn show-dropdown-menu []
   (if (> (count @locations) 1)

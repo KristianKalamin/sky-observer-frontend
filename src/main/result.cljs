@@ -30,16 +30,21 @@
 (defn get-time-part [date-time]
   ((str/split date-time "T") 1))
 
+(defn name-for-magnitude [magnitude]
+  (cond (<= magnitude 4) "Visible with naked eye"
+        (and (> magnitude 4) (<= magnitude 6)) "Not visible with naked eye"
+        :else "Not visible"))
+
 (defn fill-table [data]
   (dotimes [i (count data)]
     (let [row (data i)]
       (.append (js/jQuery "tbody")
                (str "<tr>
-                <th scope='row'" i "</th>"
+                <th scope='row'>" (inc i) "</th>"
                     "<td>" (:satelliteName row) "</td>"
                     "<td>" (get-time-part (:startFlybyTime row)) "</td>"
                     "<td>" (get-time-part (:endFlybyTime row)) "</td>"
-                    "<td>" (:nakedEyeVisibilityMag row) "</td>"
+                    "<td>" (name-for-magnitude (:nakedEyeVisibilityMag row)) "</td>"
                     "</tr>")))))
 
 (defn get-nearby-historic-searches [lat lon]

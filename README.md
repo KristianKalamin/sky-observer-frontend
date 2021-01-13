@@ -4,7 +4,8 @@
 
 Requirements: Java 8 and Node.js with Shadow-cljs module installed
 
-To run this app type in terminal 
-` shadow-cljs watch app `
+If shadow-cljs is installed globaly type in terminal
+` shadow-cljs watch app ` to run this app otherwise type 
+` npx shadow-cljs watch app `
 
-To create release versions of JS libraries type `shadow-cljs release app` 
+To create release versions of JS libraries type `(npx) shadow-cljs release app` 
